@@ -32,10 +32,26 @@ const App = () => {
     { name: 'Mount Abu', country: 'India' },
     { name: 'Tirupati', country: 'India' },
     ]
-    
+    const vacationList = [];
+    let idx = 1;
+    cityList.forEach(cl=>{
+      if(cl.country==="India"){
+        const obj = {
+          cityName: cl.name,
+          key: idx 
+        }
+        vacationList.push(obj);
+        idx++;
+      }
+    })
   return (
     <div id="main">
                {/* Do not remove the main div */}
+               <ol>
+                {
+                  vacationList.map(vl=><li key={vl.key}>{vl.cityName}</li>)
+                }
+               </ol>
     </div>
   )
 }
